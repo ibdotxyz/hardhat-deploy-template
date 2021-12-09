@@ -4,10 +4,10 @@ import 'hardhat-deploy';
 import '@nomiclabs/hardhat-ethers';
 import '@nomiclabs/hardhat-etherscan';
 
- const config: any = {
+ const config: HardhatUserConfig = {
   defaultNetwork: 'hardhat',
   solidity: {
-    version: '0.8.9',
+    version: '0.8.10',
     settings: {
       optimizer: {
         enabled: true
@@ -24,36 +24,50 @@ import '@nomiclabs/hardhat-etherscan';
   namedAccounts: {
     deployer: 0,
     admin: {
-      hardhat: '0x197939c1ca20C2b506d6811d8B6CDB3394471074',
-      avalanche: '0x197939c1ca20C2b506d6811d8B6CDB3394471074',
-      fuji: '0x197939c1ca20C2b506d6811d8B6CDB3394471074'
+      mainnet: '0x197939c1ca20C2b506d6811d8B6CDB3394471074',
+      bsc: '0x197939c1ca20C2b506d6811d8B6CDB3394471074',
+    },
+    multisig: {
+      mainnet: '0x6D5a7597896A703Fe8c85775B23395a48f971305',
+      bsc: '0xDF951b3657777ee21a3B01494C362d2ea9d4378E'
     }
   },
   networks: {
     hardhat: {
       forking: {
-        url: `https://mainnet-eth.compound.finance`
+        url: `https://cloudflare-eth.com`
       }
     },
     mainnet: {
-      url: `https://mainnet-eth.compound.finance`,
-      accounts: [`0x${process.env.DEPLOY_PRIVATE_KEY}`]
+      url: `https://cloudflare-eth.com`,
+      accounts:
+        process.env.DEPLOY_PRIVATE_KEY == undefined ? [] : [`0x${process.env.DEPLOY_PRIVATE_KEY}`]
     },
     arbitrum: {
       url: 'https://arb1.arbitrum.io/rpc',
-      accounts: [`0x${process.env.DEPLOY_PRIVATE_KEY}`]
-    },
-    fuji: {
-      url: 'https://api.avax-test.network/ext/bc/C/rpc',
-      gasPrice: 225000000000,
-      chainId: 43113,
-      accounts: [`0x${process.env.DEPLOY_PRIVATE_KEY}`]
+      accounts:
+        process.env.DEPLOY_PRIVATE_KEY == undefined ? [] : [`0x${process.env.DEPLOY_PRIVATE_KEY}`]
     },
     avalanche: {
       url: 'https://api.avax.network/ext/bc/C/rpc',
-      gasPrice: 225000000000,
       chainId: 43114,
-      accounts: [`0x${process.env.DEPLOY_PRIVATE_KEY}`]
+      accounts:
+        process.env.DEPLOY_PRIVATE_KEY == undefined ? [] : [`0x${process.env.DEPLOY_PRIVATE_KEY}`]
+    },
+    polygon: {
+      url: 'https://polygon-rpc.com',
+      accounts:
+        process.env.DEPLOY_PRIVATE_KEY == undefined ? [] : [`0x${process.env.DEPLOY_PRIVATE_KEY}`]
+    },
+    bsc: {
+      url: 'https://bsc-dataseed.binance.org/',
+      accounts:
+        process.env.DEPLOY_PRIVATE_KEY == undefined ? [] : [`0x${process.env.DEPLOY_PRIVATE_KEY}`]
+    },
+    ftm: {
+      url: 'https://rpc.ftm.tools/',
+      accounts:
+        process.env.DEPLOY_PRIVATE_KEY == undefined ? [] : [`0x${process.env.DEPLOY_PRIVATE_KEY}`]
     }
   },
   etherscan: {
