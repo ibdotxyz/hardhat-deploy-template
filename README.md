@@ -27,15 +27,21 @@
 
     npx hardhat compile
 
+### Scripts
+See [CreamFi/cream-deployment](https://github.com/CreamFi/cream-deployment/tree/avax/scripts) on how to write scripts.
 
-## Test
-
-    npx hardhat test test/FILE_NAME.js
+    npx hardhat run scripts/myScript.ts --network <NETWORK>
 
 
-## Deploy
+### Test
+See [CreamFi/comptroller-upgrade](https://github.com/CreamFi/comptroller-upgrade/blob/ib_credit_limit_by_market/test/upgrade.js) on how to write tests.
 
-See [CreamFi/cream-deployment](https://github.com/CreamFi/cream-deployment/tree/avax/deploy) on how to write deploy script.
+    npx hardhat test test/myTest.js
+
+
+### Deploy
+
+See [CreamFi/cream-deployment](https://github.com/CreamFi/cream-deployment/tree/avax/deploy) on how to write deployment script.
 
     npx hardhat deploy --tags <TAGS> --network <NETWORK>
 
@@ -43,7 +49,7 @@ Avaliable options: [Read here](https://github.com/wighawag/hardhat-deploy#1-hard
 
 Commit `deployments/` into git  after deployment.
 
-## Verify
+### Verify
 
     npx hardhat etherscan-verify --network <NETWORK>
 
