@@ -35,9 +35,13 @@
 
 ## Deploy
 
+See [CreamFi/cream-deployment](https://github.com/CreamFi/cream-deployment/tree/avax/deploy) on how to write deploy script.
+
     npx hardhat deploy --tags <TAGS> --network <NETWORK>
 
 Avaliable options: [Read here](https://github.com/wighawag/hardhat-deploy#1-hardhat-deploy)
+
+Commit `deployments/` into git  after deployment.
 
 ## Verify
 
