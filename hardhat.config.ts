@@ -35,11 +35,11 @@ import '@nomiclabs/hardhat-etherscan';
   networks: {
     hardhat: {
       forking: {
-        url: `https://cloudflare-eth.com`
+        url: `https://rpc.ankr.com/eth`
       }
     },
     mainnet: {
-      url: `https://cloudflare-eth.com`,
+      url: `https://rpc.ankr.com/eth`,
       accounts:
         process.env.DEPLOY_PRIVATE_KEY == undefined ? [] : [`0x${process.env.DEPLOY_PRIVATE_KEY}`]
     },
