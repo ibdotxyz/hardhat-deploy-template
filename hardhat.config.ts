@@ -23,19 +23,17 @@ import '@nomiclabs/hardhat-etherscan';
   },
   namedAccounts: {
     deployer: 0,
-    admin: {
-      mainnet: '0x197939c1ca20C2b506d6811d8B6CDB3394471074',
-      bsc: '0x197939c1ca20C2b506d6811d8B6CDB3394471074',
-    },
     multisig: {
-      mainnet: '0x6D5a7597896A703Fe8c85775B23395a48f971305',
-      bsc: '0xDF951b3657777ee21a3B01494C362d2ea9d4378E'
+      hardhat: 0,
+      mainnet: '0xA5fC0BbfcD05827ed582869b7254b6f141BA84Eb',
+      ftm: '0xA5fC0BbfcD05827ed582869b7254b6f141BA84Eb',
+      avax: '0xf3472A93B94A17dC20F9Dc9D0D48De42FfbD14f4'
     }
   },
   networks: {
     hardhat: {
       forking: {
-        url: `https://rpc.ankr.com/eth`
+        url: `https://rpc.ftm.tools/`
       }
     },
     mainnet: {
@@ -43,24 +41,9 @@ import '@nomiclabs/hardhat-etherscan';
       accounts:
         process.env.DEPLOY_PRIVATE_KEY == undefined ? [] : [`0x${process.env.DEPLOY_PRIVATE_KEY}`]
     },
-    arbitrum: {
-      url: 'https://arb1.arbitrum.io/rpc',
-      accounts:
-        process.env.DEPLOY_PRIVATE_KEY == undefined ? [] : [`0x${process.env.DEPLOY_PRIVATE_KEY}`]
-    },
-    avalanche: {
+    avax: {
       url: 'https://api.avax.network/ext/bc/C/rpc',
       chainId: 43114,
-      accounts:
-        process.env.DEPLOY_PRIVATE_KEY == undefined ? [] : [`0x${process.env.DEPLOY_PRIVATE_KEY}`]
-    },
-    polygon: {
-      url: 'https://polygon-rpc.com',
-      accounts:
-        process.env.DEPLOY_PRIVATE_KEY == undefined ? [] : [`0x${process.env.DEPLOY_PRIVATE_KEY}`]
-    },
-    bsc: {
-      url: 'https://bsc-dataseed.binance.org/',
       accounts:
         process.env.DEPLOY_PRIVATE_KEY == undefined ? [] : [`0x${process.env.DEPLOY_PRIVATE_KEY}`]
     },
@@ -69,9 +52,6 @@ import '@nomiclabs/hardhat-etherscan';
       accounts:
         process.env.DEPLOY_PRIVATE_KEY == undefined ? [] : [`0x${process.env.DEPLOY_PRIVATE_KEY}`]
     }
-  },
-  etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY
   }
 };
 
